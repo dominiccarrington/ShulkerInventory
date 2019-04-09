@@ -1,0 +1,16 @@
+[
+{
+  "modid": "shulkerinvent",
+  "name": "Shulker Inventory",
+  "description": "Open a shulker box in your inventory!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["RageGamingPE"],
+  "credits": "Rahvei for the suggestion",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
