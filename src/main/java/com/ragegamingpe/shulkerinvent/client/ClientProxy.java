@@ -1,17 +1,15 @@
 package com.ragegamingpe.shulkerinvent.client;
 
+import com.ragegamingpe.core.common.network.MessageHandler;
 import com.ragegamingpe.shulkerinvent.common.CommonProxy;
+import com.ragegamingpe.shulkerinvent.common.network.message.SlotMessage;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockShulkerBox;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntityShulkerBox;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -62,12 +60,6 @@ public class ClientProxy extends CommonProxy
         this.runKeyboard(event);
     }
 
-    @SubscribeEvent
-    public void onGuiKeyboardEvent(GuiScreenEvent.KeyboardInputEvent.Post event)
-    {
-        this.runKeyboard(event);
-    }
-
     public void runKeyboard(GuiScreenEvent.KeyboardInputEvent event)
     {
         if (event.getGui() instanceof GuiContainer) {
@@ -87,16 +79,11 @@ public class ClientProxy extends CommonProxy
                 if (stack != null && openShulkerBoxBinding.isActiveAndMatches(Keyboard.getEventKey())) {
                     // We got a live one bois...
 
-                    NBTTagCompound nbttagcompound = stack.getTagCompound();
-                    if (nbttagcompound != null && nbttagcompound.hasKey("BlockEntityTag", 10)) {
-                        NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("BlockEntityTag");
-
-                        if (nbttagcompound1.hasKey("Items", 9)) {
-                            TileEntityShulkerBox shulkerInventory = new TileEntityShulkerBox(BlockShulkerBox.getColorFromBlock(Block.getBlockFromItem(stack.getItem())));
-                            shulkerInventory.setWorld(Minecraft.getMinecraft().world);
-                            shulkerInventory.readFromNBT(nbttagcompound1);
-                            Minecraft.getMinecraft().player.displayGUIChest(shulkerInventory);
-                        }
+                    int i = 0;
+                    for (Slot s : container.inventorySlots.inventorySlots) {
+                        if (s == slot)
+                            MessageHandler.INSTANCE.sendToServer(new SlotMessage(i));
+                        i++;
                     }
                 }
             }

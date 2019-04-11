@@ -7,12 +7,16 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ShulkerInvent.MODID, name = ShulkerInvent.NAME, version = ShulkerInvent.VERSION)
+@Mod(modid = ShulkerInvent.MODID, name = ShulkerInvent.NAME, version = ShulkerInvent.VERSION, dependencies = ShulkerInvent.DEPENDENCIES)
 public class ShulkerInvent
 {
     public static final String MODID = "shulkerinvent";
     public static final String NAME = "Shulker Invent";
     public static final String VERSION = "GRADLE:VERSION";
+    public static final String DEPENDENCIES = "required-before:rgpemc;";
+
+    @Mod.Instance
+    public static ShulkerInvent instance;
 
     @SidedProxy(clientSide = "com.ragegamingpe.shulkerinvent.client.ClientProxy", serverSide = "com.ragegamingpe.shulkerinvent.common.CommonProxy")
     public static CommonProxy proxy;
