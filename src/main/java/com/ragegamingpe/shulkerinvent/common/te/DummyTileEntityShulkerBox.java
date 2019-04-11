@@ -1,6 +1,5 @@
 package com.ragegamingpe.shulkerinvent.common.te;
 
-import com.ragegamingpe.shulkerinvent.common.ShulkerInvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.EnumDyeColor;
@@ -29,13 +28,15 @@ public class DummyTileEntityShulkerBox extends TileEntityShulkerBox
     @Override
     public void markDirty()
     {
-        ShulkerInvent.logger.info(!this.world.isRemote);
         if (!this.world.isRemote) {
             NBTTagCompound comp = stack.getTagCompound();
             NBTTagCompound data = new NBTTagCompound();
 
             if (comp != null && comp.hasKey("BlockEntityTag", 10)) {
                 data = comp.getCompoundTag("BlockEntityTag");
+            } else {
+                stack.setTagCompound(comp = new NBTTagCompound());
+                comp.setTag("BlockEntityTag", data);
             }
 
             comp.setTag("Items", ItemStackHelper.saveAllItems(data, this.getItems()));
