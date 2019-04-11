@@ -1,2 +1,21 @@
 version = "0.1.0"
 group = "com.ragegamingpe.shulkerinvent" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+
+ext.priv = parseConfig(file("private.properties"))
+
+tasks.githubRelease.dependsOn "build"
+
+githubRelease {
+    token "${priv.githubToken}"
+    owner "dominiccarrington"
+    repo "ShulkerInventory"
+    releaseAssets jar.destinationDir.listFiles()
+}
+
+def parseConfig(File config) {
+    config.withReader {
+        def prop = new Properties()
+        prop.load(it)
+        return (new ConfigSlurper().parse(prop))
+    }
+}
