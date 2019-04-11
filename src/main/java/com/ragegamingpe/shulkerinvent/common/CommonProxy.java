@@ -1,7 +1,7 @@
 package com.ragegamingpe.shulkerinvent.common;
 
-import com.ragegamingpe.core.common.network.MessageHandler;
 import com.ragegamingpe.shulkerinvent.common.network.GuiHandler;
+import com.ragegamingpe.shulkerinvent.common.network.MessageHandler;
 import com.ragegamingpe.shulkerinvent.common.network.message.SlotMessage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

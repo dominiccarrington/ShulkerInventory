@@ -1,8 +1,8 @@
 package com.ragegamingpe.shulkerinvent.common.network.message;
 
-import com.ragegamingpe.core.common.network.Message;
 import com.ragegamingpe.shulkerinvent.common.ShulkerInvent;
 import com.ragegamingpe.shulkerinvent.common.network.GuiHandler;
+import com.ragegamingpe.shulkerinvent.common.network.Message;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;

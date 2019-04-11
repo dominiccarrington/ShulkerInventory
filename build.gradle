@@ -1,6 +1,2 @@
-version = "0.0.1"
+version = "0.1.0"
 group = "com.ragegamingpe.shulkerinvent" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-
-dependencies {
-    compile project(":ModdingBase")
-}

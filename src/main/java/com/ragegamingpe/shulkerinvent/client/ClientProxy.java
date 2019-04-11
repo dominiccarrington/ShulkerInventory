@@ -1,7 +1,7 @@
 package com.ragegamingpe.shulkerinvent.client;
 
-import com.ragegamingpe.core.common.network.MessageHandler;
 import com.ragegamingpe.shulkerinvent.common.CommonProxy;
+import com.ragegamingpe.shulkerinvent.common.network.MessageHandler;
 import com.ragegamingpe.shulkerinvent.common.network.message.SlotMessage;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;

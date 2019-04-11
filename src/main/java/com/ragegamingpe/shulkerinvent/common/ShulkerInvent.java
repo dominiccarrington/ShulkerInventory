@@ -13,7 +13,7 @@ public class ShulkerInvent
     public static final String MODID = "shulkerinvent";
     public static final String NAME = "Shulker Invent";
     public static final String VERSION = "GRADLE:VERSION";
-    public static final String DEPENDENCIES = "required-before:rgpemc;";
+    public static final String DEPENDENCIES = "";
 
     @Mod.Instance
     public static ShulkerInvent instance;
