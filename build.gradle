@@ -15,6 +15,17 @@ githubRelease {
     }
 }
 
+tasks.curseforge.dependsOn "githubRelease"
+
+curseforge {
+    apiKey = "${priv.curseforgeApi}"
+    project {
+        id = '319298'
+        changelog = "See https://github.com/dominiccarrington/ShulkerInventory/releases/tag/v${project.version}"
+        releaseType = "release"
+    }
+}
+
 def parseConfig(File config) {
     config.withReader {
         def prop = new Properties()
