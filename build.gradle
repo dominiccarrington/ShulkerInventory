@@ -6,10 +6,13 @@ ext.priv = parseConfig(file("private.properties"))
 tasks.githubRelease.dependsOn "build"
 
 githubRelease {
+    owner 'dominiccarrington'
+    repo 'ShulkerInventory'
     token "${priv.githubToken}"
-    owner "dominiccarrington"
-    repo "ShulkerInventory"
-    releaseAssets jar.destinationDir.listFiles()
+    releaseAssets {
+        FilenameFilter filter = { dir, filename -> filename.contains(project.version) }
+        releaseAssets = jar.destinationDir.listFiles filter
+    }
 }
 
 def parseConfig(File config) {
