@@ -23,6 +23,7 @@ curseforge {
         id = '319298'
         changelog = "See https://github.com/dominiccarrington/ShulkerInventory/releases/tag/v${project.version}"
         releaseType = "release"
+        addGameVersion "1.12.2"
     }
     options {
         forgeGradleIntegration = false
