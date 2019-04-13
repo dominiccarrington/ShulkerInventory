@@ -1,4 +1,4 @@
-version = "0.1.1"
+version = "0.1.2"
 group = "com.ragegamingpe.shulkerinvent" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 ext.priv = parseConfig(file("private.properties"))
