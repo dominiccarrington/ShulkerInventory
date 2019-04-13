@@ -21,7 +21,7 @@ curseforge {
     apiKey = "${priv.curseforgeApi}"
     project {
         id = '319298'
-        changelog = "See https://github.com/dominiccarrington/ShulkerInventory/releases/tag/v${project.version}"
+        changelog = "See https://github.com/${githubRelease.owner}/${githubRelease.repo}/releases/tag/v${project.version}"
         releaseType = "release"
         addGameVersion "1.12.2"
     }
