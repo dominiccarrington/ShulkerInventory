@@ -1,4 +1,4 @@
-version = "0.1.0"
+version = "0.1.1"
 group = "com.ragegamingpe.shulkerinvent" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 ext.priv = parseConfig(file("private.properties"))
@@ -23,6 +23,9 @@ curseforge {
         id = '319298'
         changelog = "See https://github.com/dominiccarrington/ShulkerInventory/releases/tag/v${project.version}"
         releaseType = "release"
+    }
+    options {
+        forgeGradleIntegration = false
     }
 }
 
