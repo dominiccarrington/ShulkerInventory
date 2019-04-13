@@ -15,7 +15,7 @@ githubRelease {
     }
 }
 
-tasks.curseforge.dependsOn "githubRelease"
+tasks.curseforge.dependsOn "build"
 
 curseforge {
     apiKey = "${priv.curseforgeApi}"
@@ -24,9 +24,6 @@ curseforge {
         changelog = "See https://github.com/${githubRelease.owner}/${githubRelease.repo}/releases/tag/v${project.version}"
         releaseType = "release"
         addGameVersion "1.12.2"
-    }
-    options {
-        forgeGradleIntegration = false
     }
 }
 
